@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Penjumlahan - Seret dengan Tangan (CNN)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video id="video" playsinline muted></video>
+  <canvas id="overlay"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="pill" id="score">Skor: 0</div>
+    <div class="pill" id="progress">Soal 1/10</div>
+  </div>
+
+  <div id="question" class="glass hidden">
+    <span id="q-text"></span><span id="dropzone">?</span>
+  </div>
+  <div id="hint" class="hidden">Cubit jempol + telunjuk di atas angka, seret ke kotak <b>?</b>, lalu lepas</div>
+  <div id="options" class="hidden"></div>
+  <div id="feedback"></div>
+
+  <div id="screen-start" class="screen">
+    <div class="card glass">
+      <h1>Game Penjumlahan</h1>
+      <p><b>Cubit</b> (jempol + telunjuk) angka jawaban, <b>seret</b> ke kotak <b>?</b>, lalu <b>lepas</b>.</p>
+      <p class="small">10 soal acak &bull; 10 poin per soal &bull; skor maksimal 100</p>
+      <button class="target big" id="btn-start">Mulai</button>
+      <p class="small">Untuk menekan tombol: cubit di atasnya, atau tahan telunjuk ~1 detik.</p>
+      <p class="small" id="status">Menyalakan kamera...</p>
+    </div>
+  </div>
+
+  <div id="screen-end" class="screen hidden">
+    <div class="card glass">
+      <h1>Selesai!</h1>
+      <div id="final-score">0</div>
+      <p id="final-msg"></p>
+      <button class="target big" id="btn-restart">Main Lagi</button>
+    </div>
+  </div>
+
+  <div id="cursor"></div>
+
+  <script src="mediapipe/hands.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
